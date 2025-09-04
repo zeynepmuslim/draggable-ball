@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class TestDragableVC: UIViewController {
+class TestDraggableVC: UIViewController {
 
 /*
 
@@ -117,6 +117,7 @@ class TestDragableVC: UIViewController {
         UIColor.systemPink
     ]
     private var editingGradientColorIndex: Int?
+    private var activeTextField: UITextField?
 
     // MARK: - Layout Constants
     private enum Layout {
@@ -520,6 +521,7 @@ class TestDragableVC: UIViewController {
         textInputField.placeholder = "Enter text..."
         textInputField.delegate = self
         textInputField.addTarget(self, action: #selector(textInputChanged), for: .editingChanged)
+        textInputField.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
         textContainer.addSubview(textInputField)
         
         fontSelectionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -837,6 +839,7 @@ class TestDragableVC: UIViewController {
         hexField.autocapitalizationType = .allCharacters
         hexField.tag = index
         hexField.delegate = self
+        hexField.addTarget(self, action: #selector(textFieldDidBeginEditing), for: .editingDidBegin)
         gradientHexFields.append(hexField)
 
         let stackView = UIStackView(arrangedSubviews: [colorView, hexField])
@@ -977,6 +980,11 @@ class TestDragableVC: UIViewController {
         draggableBall.updateText(text)
     }
     
+    @objc internal func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Track the currently active text field for keyboard handling
+        activeTextField = textField
+    }
+    
     @objc private func fontSizeChanged(_ slider: UISlider) {
         selectedFontSize = CGFloat(slider.value)
         fontSizeValueLabel.text = "\(Int(selectedFontSize))"
@@ -1080,15 +1088,16 @@ class TestDragableVC: UIViewController {
     
     @objc private func keyboardWillShow(_ notification: Notification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
-              let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double else {
+              let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
+              let textField = activeTextField else {
             return
         }
         
         let keyboardHeight = keyboardFrame.height
-        
-        let textFieldFrame = textInputField.convert(textInputField.bounds, to: view)
-        let textFieldBottom = textFieldFrame.maxY
         let keyboardTop = view.bounds.height - keyboardHeight
+        
+        let textFieldFrame = textField.convert(textField.bounds, to: view)
+        let textFieldBottom = textFieldFrame.maxY
         
         if textFieldBottom > keyboardTop {
             let offsetNeeded = textFieldBottom - keyboardTop + Layout.standardPadding
@@ -1104,6 +1113,9 @@ class TestDragableVC: UIViewController {
             return
         }
         
+        // Clear the active text field reference
+        activeTextField = nil
+        
         UIView.animate(withDuration: animationDuration) {
             self.scrollView.contentOffset.y = 0
         }
@@ -1111,7 +1123,7 @@ class TestDragableVC: UIViewController {
 }
 
 // MARK: - DraggableBallDelegate
-extension TestDragableVC: DraggableBallDelegate {
+extension TestDraggableVC: DraggableBallDelegate {
     
     func draggableBall(_ draggableBall: DraggableBall, didUpdateProgress progress: CGFloat) {
         // Update progress label dynamically
@@ -1147,7 +1159,7 @@ extension TestDragableVC: DraggableBallDelegate {
 }
 
 // MARK: - UIColorPickerViewControllerDelegate
-extension TestDragableVC: UIColorPickerViewControllerDelegate {
+extension TestDraggableVC: UIColorPickerViewControllerDelegate {
     
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         if let index = editingGradientColorIndex {
@@ -1174,13 +1186,18 @@ extension TestDragableVC: UIColorPickerViewControllerDelegate {
 
 
 // MARK: - UITextFieldDelegate
-extension TestDragableVC: UITextFieldDelegate {
+extension TestDraggableVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        // Clear active text field reference when editing ends
+        if activeTextField == textField {
+            activeTextField = nil
+        }
+        
         if textField == textInputField {
             // Handle text input field
             guard let text = textField.text else { return }
@@ -1205,7 +1222,7 @@ extension TestDragableVC: UITextFieldDelegate {
 struct TestDragableVC_Previews: PreviewProvider {
     static var previews: some View {
         ViewControllerPreview {
-            TestDragableVC()
+            TestDraggableVC()
         }
     }
 }

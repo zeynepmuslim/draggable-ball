@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		D7033BE92DA04D7100F88BEA /* BallAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7033BE92DA04D7100F88BEA /* DraggableBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DraggableBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D7033BFB2DA04D7200F88BEA /* Exceptions for "BallAnimation" folder in "BallAnimation" target */ = {
+		D7033BFB2DA04D7200F88BEA /* Exceptions for "BallAnimation" folder in "DraggableBall" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = D7033BE82DA04D7100F88BEA /* BallAnimation */;
+			target = D7033BE82DA04D7100F88BEA /* DraggableBall */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -24,7 +24,7 @@
 		D7033BEB2DA04D7100F88BEA /* BallAnimation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				D7033BFB2DA04D7200F88BEA /* Exceptions for "BallAnimation" folder in "BallAnimation" target */,
+				D7033BFB2DA04D7200F88BEA /* Exceptions for "BallAnimation" folder in "DraggableBall" target */,
 			);
 			path = BallAnimation;
 			sourceTree = "<group>";
@@ -53,7 +53,7 @@
 		D7033BEA2DA04D7100F88BEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D7033BE92DA04D7100F88BEA /* BallAnimation.app */,
+				D7033BE92DA04D7100F88BEA /* DraggableBall.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,9 +61,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D7033BE82DA04D7100F88BEA /* BallAnimation */ = {
+		D7033BE82DA04D7100F88BEA /* DraggableBall */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D7033BFC2DA04D7200F88BEA /* Build configuration list for PBXNativeTarget "BallAnimation" */;
+			buildConfigurationList = D7033BFC2DA04D7200F88BEA /* Build configuration list for PBXNativeTarget "DraggableBall" */;
 			buildPhases = (
 				D7033BE52DA04D7100F88BEA /* Sources */,
 				D7033BE62DA04D7100F88BEA /* Frameworks */,
@@ -76,11 +76,11 @@
 			fileSystemSynchronizedGroups = (
 				D7033BEB2DA04D7100F88BEA /* BallAnimation */,
 			);
-			name = BallAnimation;
+			name = DraggableBall;
 			packageProductDependencies = (
 			);
 			productName = BallAnimation;
-			productReference = D7033BE92DA04D7100F88BEA /* BallAnimation.app */;
+			productReference = D7033BE92DA04D7100F88BEA /* DraggableBall.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D7033BE42DA04D7100F88BEA /* Build configuration list for PBXProject "BallAnimation" */;
+			buildConfigurationList = D7033BE42DA04D7100F88BEA /* Build configuration list for PBXProject "DraggableBall" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D7033BE82DA04D7100F88BEA /* BallAnimation */,
+				D7033BE82DA04D7100F88BEA /* DraggableBall */,
 			);
 		};
 /* End PBXProject section */
@@ -148,6 +148,7 @@
 				DEVELOPMENT_TEAM = 9N5WN36F7P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BallAnimation/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Draggable Ball";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -177,6 +178,7 @@
 				DEVELOPMENT_TEAM = 9N5WN36F7P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BallAnimation/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Draggable Ball";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -318,7 +320,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D7033BE42DA04D7100F88BEA /* Build configuration list for PBXProject "BallAnimation" */ = {
+		D7033BE42DA04D7100F88BEA /* Build configuration list for PBXProject "DraggableBall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D7033BFF2DA04D7200F88BEA /* Debug */,
@@ -327,7 +329,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D7033BFC2DA04D7200F88BEA /* Build configuration list for PBXNativeTarget "BallAnimation" */ = {
+		D7033BFC2DA04D7200F88BEA /* Build configuration list for PBXNativeTarget "DraggableBall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D7033BFD2DA04D7200F88BEA /* Debug */,

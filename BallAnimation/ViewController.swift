@@ -79,13 +79,13 @@ class ViewController: UIViewController {
     }
     
     @objc private func articleButtonTapped() {
-        if let url = URL(string: "") {
+        if let url = URL(string: "http://zeynepmuslim.blog/post.html?post=draggable-ball-eng%2Fdraggable-ball-eng.md") {
             UIApplication.shared.open(url)
         }
     }
     
     @objc private func githubButtonTapped() {
-        if let url = URL(string: "") {
+        if let url = URL(string: "https://github.com/zeynepmuslim/draggable-ball") {
             UIApplication.shared.open(url)
         }
     }
@@ -120,7 +120,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch indexPath.row {
         case 0:
-            destinationVC = TestDragableVC()
+            destinationVC = TestDraggableVC()
         case 1:
             destinationVC = SingleBallAnimationVC()
         default:

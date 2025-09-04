@@ -53,10 +53,10 @@ class SingleBallAnimationVC: UIViewController {
         
         stackView.addArrangedSubview(labelStackView01)
         
-        draggableBall = DraggableBall(frame: .zero, fillText: "Draggable Ball ", showCornerInnerShadow: true, showTopInnerShadow: true, cornerInnerShadowAlpha: 0.1, topInnerShadowAlpha: 0.1)
+        draggableBall = DraggableBall(frame: .zero, fillText: "Capsule", showCornerInnerShadow: true, showTopInnerShadow: true, cornerInnerShadowAlpha: 0.2, topInnerShadowAlpha: 0.2)
         draggableBall.translatesAutoresizingMaskIntoConstraints = false
         draggableBall.delegate = self
-        draggableBall.updateFont(name: "Cheetah Kick - Personal Use", size: 32, color: .white)
+        draggableBall.updateFont(name: "Cheetah Kick - Personal Use", size: 36, color: .white)
         draggableBall.fillGradientColors = [ // didSet will update gradient directly
             UIColor.systemBlue.cgColor,
             UIColor.systemCyan.cgColor,
@@ -81,20 +81,6 @@ class SingleBallAnimationVC: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
             stackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -80)
         ])
-        
-//        draggableBall.updateCapsuleWidth(320)
-//        draggableBall.updateCapsuleHeight(50)
-//        draggableBall.updateBallSize(65)
-//        draggableBall.updateIndicatorSize(190)
-//        draggableBall.updateIndicatorTopOffset(-5)
-//        draggableBall.updateFont(name: "Cheetah Kick - Personal Use", size: 44, color: .white)
-//        draggableBall.fillGradientColors = [ // didSet will update gradient directly
-//            UIColor.renk02.cgColor,
-//            UIColor.renk03.cgColor
-//        ]
-        
-//        updateCapsuleHeight(_:)
-//        updateCapsuleWidth(_:)
     }
     
     @objc func randomButtonTapped() {

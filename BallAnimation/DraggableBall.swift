@@ -243,7 +243,6 @@ class DraggableBall: UIView {
         indicatorImageView.image = indicatorImage
         indicatorImageView.contentMode = .scaleAspectFit
         ballView.addSubview(indicatorImageView) // added to ball not view itself
-        // updateIndicatorRotation(progress: 20) // We set it in the default position
         
         // Set translatesAutoresizingMaskIntoConstraints to false for all views
         capsuleView.translatesAutoresizingMaskIntoConstraints = false
