@@ -160,10 +160,7 @@ let isCompleted = draggableBall.isCompleted
 
 The project includes a comprehensive test interface (`TestDragableVC.swift`) that demonstrates all available methods and customization options:
 
-<p align="center">
-  <img src="assets-for-readme/testVc-01.PNG" width=“45%" />
-  <img src="assets-for-readme/testVc-02.PNG" width=“45%" />
-</p>
+<div style="display: flex; justify-content: center; gap: 10px;"><img src="assets-for-readme/testVc-01.PNG" alt="Screenshot 1" width="200"/>     <img src="assets-for-readme/testVc-02.PNG" alt="Screenshot 2" width="200"/></div>
 
 ## 📁 Project Structure
 
